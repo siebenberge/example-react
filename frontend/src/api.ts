@@ -38,7 +38,8 @@ async function apiFetch<T>(
 	const token = opts.token ?? getStoredToken();
 	if (token) headers.set("Authorization", `Bearer ${token}`);
 
-	const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}${path}`, { ...opts, headers });
+	const base = import.meta.env.VITE_API_BASE_URL ?? "";
+	const res = await fetch(`${base}${path}`, { ...opts, headers });
 	const text = await res.text();
 	let body: { error?: string } & Partial<T> = {};
 	if (text) {

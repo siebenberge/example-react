@@ -11,21 +11,13 @@ export default defineConfig([
 		files: ["src/**/*.{ts,tsx}"],
 		extends: [
 			js.configs.recommended,
-			tseslint.configs.recommended,
+			...tseslint.configs.recommended,
 			reactHooks.configs.flat.recommended,
 			reactRefresh.configs.vite,
 		],
 		languageOptions: {
 			ecmaVersion: 2020,
 			globals: globals.browser,
-		},
-	},
-	{
-		files: ["server/**/*.ts"],
-		extends: [js.configs.recommended, tseslint.configs.recommended],
-		languageOptions: {
-			ecmaVersion: 2020,
-			globals: { ...globals.node, ...globals.bun },
 		},
 	},
 ]);

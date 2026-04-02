@@ -434,6 +434,11 @@ async function handleRequest(req: Request): Promise<Response> {
 }
 
 const server = Bun.serve({
+	// ...(process.env.NODE_ENV !== "production" ? {
+	// 	routes: {
+	// 		"/*": await import("../dist/index.html"),
+	// 	}
+	// } : {}),
 	port: config.port,
 	fetch: handleRequest,
 });
