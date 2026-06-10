@@ -118,7 +118,6 @@ export async function deleteTodoRequest(id: string): Promise<void> {
 }
 
 export async function checkoutRequest(plan: "basic" | "pro"): Promise<{
-	redirectStartUrl: string;
 	checkoutUrl: string;
 	sessionId: string;
 }> {

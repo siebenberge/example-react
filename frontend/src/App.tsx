@@ -154,8 +154,8 @@ export default function App() {
 		setBusy(true);
 		setLoadError(null);
 		try {
-			const { redirectStartUrl } = await checkoutRequest(plan);
-			window.location.href = redirectStartUrl;
+			const { checkoutUrl } = await checkoutRequest(plan);
+			window.location.href = checkoutUrl;
 		} catch (e) {
 			setLoadError(e instanceof Error ? e.message : "Checkout failed");
 			setBusy(false);
@@ -494,7 +494,7 @@ function PricingPage(props: {
 						<h2 className="text-lg font-medium">Basic</h2>
 						<p className="text-slate-400 text-sm">{PLAN_LIMITS.basic}</p>
 						<p className="text-slate-500 text-xs">
-							Maps to <code className="text-slate-400">PRICE_ID_BASIC</code> in your Kwit org.
+							Maps to <code className="text-slate-400">PRODUCT_ID_BASIC</code> in your Kwit org.
 						</p>
 						<button
 							type="button"
@@ -509,7 +509,7 @@ function PricingPage(props: {
 						<h2 className="text-lg font-medium text-indigo-200">Pro</h2>
 						<p className="text-slate-400 text-sm">{PLAN_LIMITS.pro}</p>
 						<p className="text-slate-500 text-xs">
-							Maps to <code className="text-slate-400">PRICE_ID_PRO</code> in your Kwit org.
+							Maps to <code className="text-slate-400">PRODUCT_ID_PRO</code> in your Kwit org.
 						</p>
 						<button
 							type="button"
